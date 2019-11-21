@@ -71,6 +71,14 @@ const styles = {
     overflow: 'auto',
     ...scrollBarStyles()
   },
+  footer:  {
+    display: 'flex',
+    alignItems: 'center',
+  },
+  footerLink:  {
+    padding: '15px',
+    size: 'smaller',
+  },
 }
 
 const MapSideBar = ({
@@ -192,12 +200,28 @@ const MapSideBar = ({
         {activeLayers.filter(layer => !layer.mask).map(renderLayerCard)}
         {renderAddLayerButton(true)}
       </div>
-      <a href='//resourcewatch.org/'
-         className='map-credit'
-         target='_blank'
-         rel="noopener noreferrer">
-        <img src={resourceWatchLogo} />
-      </a>
+      <div className={classes.footer}>
+        <a href='/info/terms-of-service'
+           className={classes.footerLink}
+           target='_blank'
+           rel="noopener noreferrer">
+          Terms of Service
+        </a>
+        {/*
+        <a href='/info/privacy-policy'
+           className={classes.footerLink}
+           target='_blank'
+           rel="noopener noreferrer">
+          Privacy Policy
+        </a>
+        */}
+        <a href='//resourcewatch.org/'
+           className='map-credit'
+           target='_blank'
+           rel="noopener noreferrer">
+          <img src={resourceWatchLogo} />
+        </a>
+      </div>
     </div>
   )
 }
