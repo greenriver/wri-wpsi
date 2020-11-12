@@ -4,14 +4,19 @@ table.table
   thead
     tr
       th Description
+      th URL
       th Date Uploaded
-      th
 
   tbody
+
     - @file_uploads.each do |file_upload|
       tr
         td = file_upload.description
-        td = link_to url_for(file_upload.file) if file_upload.file.attached?
+        - if file_upload.file.attached?
+          - url = url_for(file_upload.file)
+          td = link_to url, url
+        - else
+          td
         td = file_upload.created_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete

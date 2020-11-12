@@ -22,6 +22,7 @@ class FileUploadsTest < ApplicationSystemTestCase
     assert_selector 'h2', text: 'Listing file uploads'
     assert_selector 'td', text: 'Test this file'
     assert_selector 'td', text: file_upload.file.filename.to_s
+    assert_selector 'th', text: 'URL'
   end
 
   test 'creating a file upload' do
