@@ -33,38 +33,39 @@
 }
 
 @mixin h1($color: $gray-700) {
-  @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
+  // @include font-heading(30px, $color, $lh: line-height(41, 30), $weight: 900);
+  @include font-heading($weight: 900);
 }
 
 @mixin h2($color: $gray-700) {
-  @include font-heading(24px, $color, $lh: line-height(27, 24));
+  // @include font-heading(24px, $color, $lh: line-height(27, 24));
 }
 
 @mixin h3($color: $gray-600) {
   @include font-heading(20px, $color, $lh: line-height(22, 20));
 }
 
-@mixin h4($color: $gray-500) {
-  @include font-heading(16px, $color, $lh: line-height(16, 14));
+@mixin h4($color: $gray-600) {
+  @include font-heading(18px, $color, $weight: bold, $lh: line-height(16, 14));
 }
 
-@mixin h5($color: $gray-500) {
+@mixin h5($color: $gray-600) {
   @include font-heading(14px, $color, $weight: bold, $lh: line-height(18, 16));
 }
 
-@mixin h6($color: $gray-500) {
+@mixin h6($color: $gray-600) {
   @include font-body(12px, $color, $weight: bold, $lh: line-height(16, 14));
 }
 
 @mixin primary-heading {
-  @include font-heading($size: 50px, $color: $white);
+  @include font-heading($size: 32px, $color: $white);
   text-transform: uppercase;
-  margin-bottom: space(6);
+  margin: 0, 3, 0, 5;
   @content;
 }
 
 @mixin secondary-heading {
-  @include font-heading($size: 35px, $color: get-gray('last'), $weight: 700, $lh: (40/35));
-  margin-bottom: space(6);
+  @include font-heading($size: 30px, $color: get-gray('last'), $weight: 700, $lh: (50/35));
+  margin: 0, 3, 0, 5;
   @content;
 }

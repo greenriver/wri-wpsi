@@ -123,7 +123,7 @@ The api returns JSON containing an array of "data points". Each datapoint has th
 Here is an example query and its result:
 
 ```JSON
-// http://wri-wpsi.herokuapp.com/api/v1/widget_datapoints/NGA.21.9_1/gid_0/
+// https://waterpeacesecurity.org/api/v1/widget_datapoints/NGA.21.9_1/gid_0/
 
 {
   "widget_datapoints": [
