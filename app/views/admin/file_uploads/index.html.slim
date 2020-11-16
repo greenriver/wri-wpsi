@@ -14,8 +14,9 @@ table.table
       tr
         td = file_upload.description
         - if file_upload.file.attached?
-          - url = url_for(file_upload.file)
-          td = link_to url, url
+          - path = url_for(file_upload.file)
+          - url = Rails.root.join(path)
+          td = link_to url, url.to_s
         - else
           td
         td = file_upload.created_at.to_s(:long)
