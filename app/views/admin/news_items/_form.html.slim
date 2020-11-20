@@ -20,8 +20,11 @@
       = f.text_area :article_url, class: 'form-control'
   .form-group
     .field
-      = f.label :image_url
-      = f.text_field :image_url, class: 'form-control'
+      = f.label :image_url, 'Image'
+      = f.select :image_url, @image_url_options, {}, class: 'form-control'
+    .pt-2
+      = link_to 'Upload a new image', new_admin_file_upload_path,
+          target: '_blank', rel: 'noopener noreferrer'
   .form-group
     .field
       = f.label :image_alt_text

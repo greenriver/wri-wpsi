@@ -3,8 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby File.read('.ruby-version').gsub('ruby-', '').strip
 
+gem 'active_storage_validations'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3.1'
+gem 'clipboard-rails'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'jquery-rails'

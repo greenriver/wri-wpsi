@@ -24,6 +24,8 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.3)
+    active_storage_validations (0.9.0)
+      rails (>= 5.2.0)
     activejob (5.2.4.4)
       activesupport (= 5.2.4.4)
       globalid (>= 0.3.6)
@@ -95,6 +97,7 @@ GEM
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     choice (0.2.0)
+    clipboard-rails (1.7.1)
     concurrent-ruby (1.1.7)
     crass (1.0.6)
     devise (4.7.1)
@@ -340,6 +343,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_storage_validations
   bootsnap (>= 1.1.0)
   bootstrap (~> 4.3.1)
   brakeman (>= 4.6.1)
@@ -350,6 +354,7 @@ DEPENDENCIES
   capistrano-rvm
   capistrano3-puma
   capybara (>= 2.15)
+  clipboard-rails
   devise
   dotenv-rails
   factory_bot_rails

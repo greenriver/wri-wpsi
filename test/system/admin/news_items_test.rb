@@ -13,14 +13,16 @@ class NewsItemsTest < ApplicationSystemTestCase
     assert_selector 'h2', text: 'Listing news items'
   end
 
-  test 'updating a News item' do
+  test 'updating a news item' do
+    @file_upload = create(:file_upload)
+
     visit admin_news_items_url
     click_on 'Edit', match: :first
 
     fill_in 'Article url', with: @news_item.article_url
     fill_in 'Description', with: @news_item.description
     fill_in 'Image alt text', with: @news_item.image_alt_text
-    fill_in 'Image url', with: @news_item.image_url
+    select @file_upload.description, from: 'Image'
     fill_in 'Title', with: @news_item.title
     click_on "Update #{NewsItem.model_name.human}"
 

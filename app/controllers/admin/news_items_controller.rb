@@ -1,6 +1,7 @@
 class Admin::NewsItemsController < Admin::BaseController
   before_action :set_news_item, only: %i[show edit update]
   before_action :set_date_options, only: %i[edit update]
+  before_action :set_image_url_options, only: %i[edit update]
 
   def index
     @news_items = NewsItem.all
@@ -31,6 +32,12 @@ class Admin::NewsItemsController < Admin::BaseController
       start_year: Time.zone.today.year,
       end_year: Time.zone.today.year - 10,
     }
+  end
+
+  def set_image_url_options
+    @image_url_options = FileUpload.all.map do |file_upload|
+      [file_upload.description, url_for(file_upload.file)]
+    end
   end
 
   def news_item_params

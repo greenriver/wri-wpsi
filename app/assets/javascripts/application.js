@@ -12,6 +12,7 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require clipboard
 //= require_tree .
 //
 // Bootstrap dependencies

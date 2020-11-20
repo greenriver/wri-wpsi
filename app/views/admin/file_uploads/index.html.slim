@@ -9,16 +9,19 @@ table.table
       th
 
   tbody
-
     - @file_uploads.each do |file_upload|
       tr
         td = file_upload.description
-        - if file_upload.file.attached?
-          - path = url_for(file_upload.file)
-          - url = Rails.root.join(path)
-          td = link_to url, url.to_s
-        - else
-          td
+        td
+          - if file_upload.file.attached?
+            - url = "#{request.base_url}#{url_for(file_upload.file)}"
+            input id="file-upload-#{file_upload.id}-url" value=url readonly=true
+            br
+            button.clipboard-btn.btn.btn-sm.btn-secondary.mt-2{
+              data-clipboard-action="copy"
+              data-clipboard-target="#file-upload-#{file_upload.id}-url"
+            }
+              | Copy to clipboard
         td = file_upload.created_at.to_s(:long)
         td = link_to 'Delete', [:admin, file_upload],
             data: { confirm: 'Are you sure?' }, method: :delete
@@ -26,3 +29,42 @@ br
 
 = link_to 'Upload a new file', new_admin_file_upload_path,
     class: 'btn btn-primary mb-4'
+
+javascript:
+  $(document).ready(function(){
+    var clipboard = new Clipboard('.clipboard-btn');
+  });
+
+  // Tooltip
+
+  $('.clipboard-btn').tooltip({
+    trigger: 'click',
+    placement: 'right',
+    offset: '0, 10',
+  });
+
+  function setTooltip(btn, message) {
+    $(btn).tooltip('show')
+      .attr('data-original-title', message)
+      .tooltip('show');
+  }
+
+  function hideTooltip(btn) {
+    setTimeout(function() {
+      $(btn).tooltip('hide');
+    }, 1000);
+  }
+
+  // Clipboard
+
+  var clipboard = new Clipboard('.clipboard-btn');
+
+  clipboard.on('success', function(e) {
+    setTooltip(e.trigger, 'Copied!');
+    hideTooltip(e.trigger);
+  });
+
+  clipboard.on('error', function(e) {
+    setTooltip(e.trigger, 'Failed!');
+    hideTooltip(e.trigger);
+  });

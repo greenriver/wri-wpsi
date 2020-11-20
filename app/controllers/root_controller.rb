@@ -83,15 +83,7 @@ class RootController < ApplicationController # rubocop:disable Metrics/ClassLeng
         credit: 'Susanne Schmeier, IHE Delft',
       ),
     ]
-    @headlines = NewsItem.all.order(date: :desc).map do |item|
-      Card.new(
-        title: item.title,
-        desc: item.description,
-        credit: item.date.strftime('%B %Y'),
-        href: item.article_url,
-        image: [item.image_url, item.image_alt_text],
-      )
-    end
+    @news_items = NewsItem.all.order(date: :desc)
 
     set_pages
     set_partners

@@ -1,0 +1,18 @@
+ruby:
+  item ||= nil
+  variant ||= 0
+  width ||= 4
+
+.o-card-row__card-wrap.col-sm-12.col-md-6 class="col-lg-#{width}"
+  a.card.c-card.c-card--link.c-card--quote.c-card--headline(
+    class=["c-card--quote-#{variant + 1}", "c-card--headline-#{variant + 1}"]
+    href=item.article_url)
+    .c-card__image-top
+      = image_tag(item.image_url, class: 'card-img-top', alt: item.image_alt_text || '')
+    .card-body.c-card__content
+      h5.card-title.c-card__title
+        = item.title
+      .card-text.c-card__credit
+        = item.date.strftime('%B %Y')
+      .card-text.c-card__text
+        = item.description.html_safe
