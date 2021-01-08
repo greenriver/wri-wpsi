@@ -42,6 +42,11 @@
 }
 
 // Setting this for body instead of p aligns content in cards on home page
-body {
+// class="c-card__text" has a p element that shouldn't be justified
+p {
   text-align: justify;
+}
+
+div.c-card__text p {
+  text-align: left;
 }
