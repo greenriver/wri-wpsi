@@ -14,7 +14,7 @@ table.table
         td = file_upload.description
         td
           - if file_upload.file.attached?
-            - url = "#{request.base_url}#{url_for(file_upload.file)}"
+            - url = file_url(file_upload.id)
             input id="file-upload-#{file_upload.id}-url" value=url readonly=true
             br
             button.clipboard-btn.btn.btn-sm.btn-secondary.mt-2{

@@ -11,6 +11,8 @@ Rails.application.routes.draw do # rubocop:disable Metrics/BlockLength
   # Admin routes
   get '/admin', to: redirect('/admin/layers'), as: 'admin'
 
+  resources :files, only: %i[show]
+
   devise_for(
     :users,
     controllers: {
