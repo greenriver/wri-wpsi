@@ -90,13 +90,13 @@ All widget data is loaded into the app's database for easier access and exposed 
 2. Run the task with the path to the file as a parameter, something like:
 
 ```
-rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_Y2020Q3_Y2020Q3_tool-table.csv]'
+rake 'import:widget_datapoints[/Users/lucas/Downloads/data_final_inputs_Y2020M12_temp_Y2020M12_temp_tool_inputs.csv]'
 ```
 
 In order to copy the CSV into the production database, you will need to specify the environment like this:
 
 ```bash
-RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_Y2020Q3_Y2020Q3_tool-table.csv]'
+cd ~/current && RAILS_ENV=production bundle exec rake 'import:widget_datapoints[/home/amichal/csvs/data_final_inputs_Y2020M12_temp_Y2020M12_temp_tool_inputs.csv]'
 ```
 
 (Takes about 1 to 2 minutes)
