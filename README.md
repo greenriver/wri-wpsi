@@ -14,7 +14,7 @@ See [.ruby-version](/.ruby-version) definition.
 See [Gemfile](/Gemfile) and [package.json](/package.json).
 
 You also need chromedriver in order to run tests. Try `brew cask install chromedriver`.
-You will need to update chromedriver when you update chrome (`brew cask upgrade chromedriver`)
+You will need to update chromedriver when you update chrome (`brew cask upgrade chromedriver`).
 
 ## Setup
 
